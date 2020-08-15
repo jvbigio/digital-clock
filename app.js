@@ -1,17 +1,20 @@
+window.onload = setInterval(liveClock, 1000)
+const btnClicked = false
 const timeDisplay = document.querySelector('.time-display')
 const dayMonth = document.querySelector('.day-month')
+const button = document.querySelector('.button')
+let today, hour, minute, seconds, day, month
 
 function liveClock () {
   let timeMarkup = ''
   let dateMarkup = ''
   let milConvert = ''
-  const today = new Date()
-  const hour = today.getHours()
-  const minute = today.getMinutes()
-  const seconds = today.getSeconds()
-  const day = today.getDay()
-  const month = today.getMonth()
-  const button = document.querySelector('.button')
+  today = new Date()
+  hour = today.getHours()
+  minute = today.getMinutes()
+  seconds = today.getSeconds()
+  day = today.getDay()
+  month = today.getMonth()
 
   const getDayOfWeek = day => {
     const dayOfWeek = {
@@ -32,22 +35,18 @@ function liveClock () {
     return months[month]
   }
   // get AM/PM
-  const amOrPm = hour => (hour < 12) ? 'AM' : 'PM'
+  const amOrPm = _ => (hour >= 12) ? 'PM' : 'AM'
+
   // convert military time
   const standardTime = _ => (hour > 12) ? hour - 12 : hour
-  // convert back to military time
-  // const militaryTime = _ => (hour < 12) ? hour + 12 : hour
-  const militaryTime = _ => {
-    timeDisplay.innerHTML = milConvert
-  }
 
   // change single digit minutes to 00 format
   const doubleDigits = _ => (minute < 10) ? `0${minute}` : minute
-
-  button.addEventListener('click', militaryTime)
+  // change single digit seconds to 00 format
+  const doubleDigitSeconds = _ => (seconds < 10) ? `0${seconds}` : seconds
 
   timeMarkup += `
-    <div class="time-display">${standardTime()}:${doubleDigits()}:${seconds} ${amOrPm()}</div>
+    <div class="time-display">${standardTime()}:${doubleDigits()}:${doubleDigitSeconds()} ${amOrPm()}</div>
     `
 
   dateMarkup += `
@@ -55,12 +54,20 @@ function liveClock () {
   `
 
   milConvert += `
-    <div class="time-display">${hour}:${doubleDigits()}:${seconds} ${amOrPm()}</div>
+    <div class="time-display">${hour}:${doubleDigits()}:${doubleDigitSeconds()} ${amOrPm()}</div>
   `
+
+  button.addEventListener('click', e => {
+    timeDisplay.innerHTML = milConvert
+  })
 
   timeDisplay.innerHTML = timeMarkup
   dayMonth.innerHTML = dateMarkup
-  setTimeout(liveClock, 1000)
+  // setTimeout(liveClock, 1000)
+}
+
+function timeChanger () {
+
 }
 
 liveClock()

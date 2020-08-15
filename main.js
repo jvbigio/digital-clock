@@ -1,29 +1,72 @@
-/**
- * Function takes in a Date object and returns the day of the week in a text format.
- */
-function getWeekDay (date) {
-  // Create an array containing each day, starting with Sunday.
-  const weekdays = [
-    'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
-  ]
-  // Use the getDay() method to get the day.
-  var day = date.getDay()
-  // Return the element that corresponds to that index.
-  return weekdays[day]
+window.onload = setInterval(liveClock, 1000)
+
+const timeDisplay = document.querySelector('.time-display')
+const dayMonth = document.querySelector('.day-month')
+
+function liveClock () {
+  let timeMarkup = ''
+  let dateMarkup = ''
+  let milConvert = ''
+  const today = new Date()
+  const hour = today.getHours()
+  const minute = today.getMinutes()
+  const seconds = today.getSeconds()
+  const day = today.getDay()
+  const month = today.getMonth()
+  const button = document.querySelector('.button')
+  // console.log('clicked')
+
+  const getDayOfWeek = day => {
+    const dayOfWeek = {
+      0: 'Sunday',
+      1: 'Monday',
+      2: 'Tuesday',
+      3: 'Wednesday',
+      4: 'Thursday',
+      5: 'Friday',
+      6: 'Saturday'
+    }
+    return dayOfWeek[day]
+  }
+
+  const getMonth = month => {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+    return months[month]
+  }
+  // get AM/PM
+  const amOrPm = hour => (hour >= 12) ? 'PM' : 'AM'
+  // convert military time
+  const standardTime = _ => (hour > 12) ? hour - 12 : hour
+  // convert back to military time
+  // const militaryTime = _ => (hour < 12) ? hour + 12 : hour
+  const militaryTime = _ => {
+    timeDisplay.innerHTML = milConvert
+  }
+  if (button.addEventListener('clicked', militaryTime)) {
+
+  }
+
+  // change single digit minutes to 00 format
+  const doubleDigits = _ => (minute < 10) ? `0${minute}` : minute
+
+  // button.addEventListener('click', militaryTime)
+
+  timeMarkup += `
+    <div class="time-display">${standardTime()}:${doubleDigits()}:${seconds} ${amOrPm()}</div>
+    `
+
+  dateMarkup += `
+    <div class="day-month">${getDayOfWeek(day)} - ${getMonth(month)} ${today.getDate()}</div>
+  `
+
+  milConvert += `
+    <div class="time-display">${hour}:${doubleDigits()}:${seconds} ${amOrPm()}</div>
+  `
+
+  timeDisplay.innerHTML = timeMarkup
+  dayMonth.innerHTML = dateMarkup
+  setTimeout(liveClock, 1000)
 }
 
-// The current weekday in a text format.
-var date = new Date()
-var weekDay = getWeekDay(date)
-console.log(weekDay)
-
-// Finding out what day a specific date fell on.
-// var date = new Date('December 25, 1987')
-// var weekDay = getWeekDay(date)
-// console.log('Christmas Day in 1987 fell on a ' + weekDay)
-
-// What weekday is tomorrow?
-// var tomorrow = new Date()
-// tomorrow.setDate(tomorrow.getDate() + 1)
-// var weekDay = getWeekDay(tomorrow)
-// console.log('Tomorrow will be a ' + weekDay)
+liveClock()
