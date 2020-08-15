@@ -1,14 +1,14 @@
 window.onload = setInterval(liveClock, 1000)
-const btnClicked = false
 const timeDisplay = document.querySelector('.time-display')
 const dayMonth = document.querySelector('.day-month')
-const button = document.querySelector('.button')
+// const button = document.querySelector('.button')
 let today, hour, minute, seconds, day, month
+let isMilitaryTime = false
+const isButtonClicked = false
 
 function liveClock () {
   let timeMarkup = ''
   let dateMarkup = ''
-  let milConvert = ''
   today = new Date()
   hour = today.getHours()
   minute = today.getMinutes()
@@ -45,29 +45,33 @@ function liveClock () {
   // change single digit seconds to 00 format
   const doubleDigitSeconds = _ => (seconds < 10) ? `0${seconds}` : seconds
 
-  timeMarkup += `
+  if (isMilitaryTime) {
+    timeMarkup += `
+    <div class="time-display">${hour}:${doubleDigits()}:${doubleDigitSeconds()} ${amOrPm()}</div>
+  `
+    toggleButton.innerText = 'Standard Time'
+  } else {
+    timeMarkup += `
     <div class="time-display">${standardTime()}:${doubleDigits()}:${doubleDigitSeconds()} ${amOrPm()}</div>
     `
+    toggleButton.innerText = 'Military Time'
+  }
 
   dateMarkup += `
     <div class="day-month">${getDayOfWeek(day)} - ${getMonth(month)} ${today.getDate()}</div>
   `
 
-  milConvert += `
-    <div class="time-display">${hour}:${doubleDigits()}:${doubleDigitSeconds()} ${amOrPm()}</div>
-  `
-
-  button.addEventListener('click', e => {
-    timeDisplay.innerHTML = milConvert
-  })
-
   timeDisplay.innerHTML = timeMarkup
   dayMonth.innerHTML = dateMarkup
-  // setTimeout(liveClock, 1000)
 }
 
-function timeChanger () {
-
-}
+const toggleButton = document.getElementById('toggle-btn')
+toggleButton.addEventListener('click', function (e) {
+  if (isMilitaryTime === false) {
+    isMilitaryTime = true
+  } else {
+    isMilitaryTime = false
+  }
+})
 
 liveClock()
