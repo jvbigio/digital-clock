@@ -1,10 +1,8 @@
 window.onload = setInterval(liveClock, 1000)
 const timeDisplay = document.querySelector('.time-display')
 const dayMonth = document.querySelector('.day-month')
-// const button = document.querySelector('.button')
 let today, hour, minute, seconds, day, month
 let isMilitaryTime = false
-const isButtonClicked = false
 
 function liveClock () {
   let timeMarkup = ''
