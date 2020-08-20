@@ -1,9 +1,3 @@
-// main.js is refactored from app.js //
-/*
-Factor out each function so that they each do just one thing
-
-everything in liveClock is clock logic
-*/
 window.onload = () => {
   setInterval(liveClock, 100)
   currentDate()
