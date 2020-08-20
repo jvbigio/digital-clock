@@ -14,4 +14,4 @@ Recently, I started the journey to become a software developer. Reading all the 
 
 # Author
 
-- _Joe Bigio_ Full-Stack Software Developer [Website](https://joebigio.netlify.app/) | [LinkedIn](https://www.linkedin.com/in/joelbigio/) | http://github.com - automatic! [GitHub](https://github.com/jvbigio)
+- _Joe Bigio_ Full-Stack Software Developer [Website](https://joebigio.netlify.app/) | [LinkedIn](https://www.linkedin.com/in/joelbigio/) | [GitHub](https://github.com/jvbigio)
