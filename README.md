@@ -10,7 +10,7 @@ Screenshot:
 
 # Summary
 
-Recently, I started the journey to become a software developer. Reading all the books I could on web development, computer science fundamentals, and taking online tutorials, I decided to start building applications on my own. This is my first application I built on my own. Although a simple clock application, I still learned valuable problem solving and JavaScript concepts.
+Recently, I started the journey to become a software developer. Reading all the books I could on web development, computer science fundamentals, and taking online tutorials that I could. That said, I decided to start building applications on my own, without using tutorials for guidance. This is my first application I built on my own. Although a simple clock application, I still learned valuable problem solving and JavaScript concepts.
 
 # Author
 
