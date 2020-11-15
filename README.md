@@ -2,7 +2,7 @@
 
 A simple clock app written entirely in JavaScript, HTML, and CSS. This application displays the current date and time, and a button to toggle between standard and military time.
 
-See it [here] (https://jvbigio.github.io/digital-clock/)
+See it [here](https://jvbigio.github.io/digital-clock/)
 # Images
 
 ![digital-clock](https://user-images.githubusercontent.com/43301741/99193175-404dcf80-2745-11eb-9e2d-453d397a3c2a.png)
