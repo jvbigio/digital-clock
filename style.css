@@ -7,13 +7,9 @@
 }
 
 
-body {
-  background: url('https://i.postimg.cc/T3TGg3tp/bg.jpg') no-repeat center center/cover;
-  font-family: 'Chilanka', cursive;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+body, html {
+  background: url('./images/bg.jpg') no-repeat center center/cover;
+  font-family: 'Chilanka', cursive; 
 }
 
 
@@ -46,9 +42,9 @@ body {
   padding: 0.5rem;
   margin-top: 0.3rem;
   border-radius: 10px;
-  /* font-weight: bold; */
+  font-weight: bold;
   text-shadow: 0px 11px 10px rgba(81, 67, 21, 0.8);
   cursor: pointer;
-  background: url('https://i.postimg.cc/rsYyQXsv/bg.jpg') no-repeat center center/cover;
+  background: url('./images/bg.jpg') no-repeat center center/cover;
   outline: none;
 }

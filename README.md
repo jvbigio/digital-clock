@@ -4,9 +4,7 @@ A simple clock app written entirely in JavaScript, HTML, and CSS. This applicati
 
 # Images
 
-Screenshot:
-
-![Image of Digital Clock](https://i.postimg.cc/ryZjK9Pf/clock-bg.png)
+![digital-clock](https://user-images.githubusercontent.com/43301741/99193175-404dcf80-2745-11eb-9e2d-453d397a3c2a.png)
 
 # Summary
 
